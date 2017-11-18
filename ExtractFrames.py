@@ -18,18 +18,15 @@ while True:
         print('complete!')
         break
 '''
-#print(videoCap.get(cv2.CAP_PROP_FRAME_COUNT))
 
-height = videoCap.get(cv2.CAP_PROP_FRAME_HEIGHT)
-#print(height)
-width = videoCap.get(cv2.CAP_PROP_FRAME_WIDTH)
-#print(width)
-frameNum = videoCap.get(cv2.CAP_PROP_FRAME_COUNT)
+height = videoCap.get(cv2.CAP_PROP_FRAME_HEIGHT)  # height of each frame
+width = videoCap.get(cv2.CAP_PROP_FRAME_WIDTH) # width of each frame
+frameNum = videoCap.get(cv2.CAP_PROP_FRAME_COUNT) # the number of frame of the video
 
-numPixel = 2
+numPixel = 2 # number of pixel to extract from each frame
 
-Pano_right = np.zeros((int(width), int(frameNum)*numPixel, 3))
-Pano_left = np.zeros((int(width), int(frameNum)*numPixel, 3))
+Pano_right = np.zeros((int(width), int(frameNum)*numPixel, 3))   # right view panorame
+Pano_left = np.zeros((int(width), int(frameNum)*numPixel, 3))   # left view panorama
 for i in range(int(frameNum)):
     success, image = videoCap.read()
     #right view
